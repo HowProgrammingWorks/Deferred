@@ -38,12 +38,14 @@ class Deferred {
 
   resolve(value) {
     this.value = value;
+    this.status = DEFERRED_RESOLVED;
     if (this.onDone) this.onDone(value);
     return this;
   }
 
   reject(value) {
     this.value = value;
+    this.status = DEFERRED_REJECTED;
     if (this.onFail) this.onFail(value);
     return this;
   }

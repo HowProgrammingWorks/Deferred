@@ -41,12 +41,14 @@ class Deferred extends EventEmitter {
 
   resolve(value) {
     this.value = value;
+    this.status = DEFERRED_RESOLVED;
     this.emit('done', value);
     return this;
   }
 
   reject(value) {
     this.value = value;
+    this.status = DEFERRED_REJECTED;
     this.emit('fail', value);
     return this;
   }
