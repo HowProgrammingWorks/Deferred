@@ -3,10 +3,12 @@
 const asyncResult = () => ({
   value: undefined,
   onDone: null,
+
   done(callback) {
     this.onDone = callback;
     return this;
   },
+
   resolve(value) {
     this.value = value;
     if (this.onDone) this.onDone(value);

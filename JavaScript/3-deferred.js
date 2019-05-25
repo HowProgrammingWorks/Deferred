@@ -9,31 +9,38 @@ const deferred = () => ({
   onDone: null,
   onFail: null,
   status: DEFERRED_PENDING,
+
   isPending() {
     return this.status === DEFERRED_PENDING;
   },
+
   isResolved() {
     return this.status === DEFERRED_RESOLVED;
   },
+
   isRejected() {
     return this.status === DEFERRED_REJECTED;
   },
+
   done(callback) {
     this.onDone = callback;
     if (this.isResolved()) callback(this.value);
     return this;
   },
+
   fail(callback) {
     this.onFail = callback;
     if (this.isRejected()) callback(this.value);
     return this;
   },
+
   resolve(value) {
     this.value = value;
     this.status = DEFERRED_RESOLVED;
     if (this.onDone) this.onDone(value);
     return this;
   },
+
   reject(value) {
     this.value = value;
     this.status = DEFERRED_REJECTED;

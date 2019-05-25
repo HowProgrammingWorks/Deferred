@@ -4,11 +4,13 @@ const asyncResult = () => ({
   value: undefined,
   onDone: null,
   resolved: false,
+
   done(callback) {
     this.onDone = callback;
     if (this.resolved) callback(this.value);
     return this;
   },
+
   resolve(value) {
     this.value = value;
     this.resolved = true;
