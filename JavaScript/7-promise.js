@@ -53,8 +53,8 @@ class Deferred extends EventEmitter {
 
   promise() {
     return new Promise((resolve, reject) => {
-      this.on('done', value => resolve(value));
-      this.on('fail', error => reject(error));
+      this.on('done', (value) => resolve(value));
+      this.on('fail', (error) => reject(error));
     });
   }
 }
@@ -67,7 +67,7 @@ const persons = {
   12: 'Rene Descartes',
 };
 
-const getPerson = id => {
+const getPerson = (id) => {
   const result = new Deferred();
   setTimeout(() => {
     const name = persons[id];

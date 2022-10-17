@@ -27,7 +27,7 @@ const persons = {
   12: 'Rene Descartes',
 };
 
-const getPerson = id => {
+const getPerson = (id) => {
   const result = asyncResult();
   setTimeout(() => {
     result.resolve({ id, name: persons[id] });
@@ -37,14 +37,14 @@ const getPerson = id => {
 
 // Subscribe
 const d1 = getPerson(10);
-d1.done(value => {
+d1.done((value) => {
   console.log('Resolved d1', value);
 });
 
 // Subscribe after resolve
 const d2 = getPerson(11);
 setTimeout(() => {
-  d2.done(value => {
+  d2.done((value) => {
     console.log('Resolved d2', value);
   });
 }, 1500);

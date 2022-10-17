@@ -62,7 +62,7 @@ const persons = {
   12: 'Rene Descartes',
 };
 
-const getPerson = id => {
+const getPerson = (id) => {
   const result = new Deferred();
   setTimeout(() => {
     const name = persons[id];
@@ -73,11 +73,11 @@ const getPerson = id => {
 };
 
 const d1 = getPerson(10)
-  .done(value => console.log('Resolved d1', value))
-  .fail(error => console.log('Resolved d1', error));
+  .done((value) => console.log('Resolved d1', value))
+  .fail((error) => console.log('Resolved d1', error));
 console.dir({ d1 });
 
 const d2 = getPerson(20)
-  .done(value => console.log('Resolved d2', value))
-  .fail(error => console.log('Resolved d2', error.message));
+  .done((value) => console.log('Resolved d2', value))
+  .fail((error) => console.log('Resolved d2', error.message));
 console.dir({ d2 });
