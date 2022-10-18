@@ -1,6 +1,6 @@
 'use strict';
 
-const { EventEmitter } = require('events');
+const { EventEmitter } = require('node:events');
 
 const DEFERRED_PENDING = 0;
 const DEFERRED_RESOLVED = 1;
