@@ -74,10 +74,10 @@ const getPerson = (id) => {
 
 const d1 = getPerson(10);
 d1.on('done', (value) => console.log('Resolved d1', value));
-d1.on('fail', (error) => console.log('Resolved d1', error));
+d1.on('fail', (error) => console.log('Rejected d1', error.message));
 console.dir({ d1 });
 
 const d2 = getPerson(20);
 d2.on('done', (value) => console.log('Resolved d2', value));
-d2.on('fail', (error) => console.log('Resolved d2', error.message));
+d2.on('fail', (error) => console.log('Rejected d2', error.message));
 console.dir({ d2 });
